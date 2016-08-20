@@ -13,12 +13,7 @@ class ApplicationController < ActionController::Base
 
       respond_to do |format|
         format.html {
-          if (request.env["HTTP_REFERER"] != nil)
-            flash[:alert] = message
-            redirect_to :back
-          else
-            redirect_to "#{Rails.root}/public/404"
-          end
+          redirect_to '/404.html'
         }
         format.json {
           render json: { authorization: [message] }, status: :forbidden

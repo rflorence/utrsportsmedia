@@ -1,2 +1,5 @@
-<a href='./users/sign_out' data-method='delete'>Sign out</a>
+<a href='./users/sign_out' data-method='delete'>Sign out</a><br>
+<% if current_user.is_admin? %>
+  <a href='./users'>Manage Users</a>
+<% end %>
 <h1>Grid of players goes here</h1>
