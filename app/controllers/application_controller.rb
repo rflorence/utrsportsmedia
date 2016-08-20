@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
       respond_to do |format|
         format.html {
           if (request.env["HTTP_REFERER"] != nil)
-            flash[:danger] = message
+            flash[:alert] = message
             redirect_to :back
           else
             redirect_to "#{Rails.root}/public/404"
