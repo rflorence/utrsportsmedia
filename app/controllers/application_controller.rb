@@ -4,17 +4,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-    def authenticate_user!
-      if user_signed_in?
-        return
-      end
-
-      respond_to do |format|
-        format.html { render :log_in }
-        format.json { render json: nil, status: :unauthorized }
-      end
-    end
-
     def require_admin
       raise User::NotAuthorized unless current_user.is_admin?
     end
